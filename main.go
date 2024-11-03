@@ -51,13 +51,13 @@ func main() {
 	}
 
 	// Root endpoint
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendFile("./client/dist/client/index.html") // Serve index.html for the root
-	})
 
 	// Setup routes
 	router.SetupRouter(app)
 
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendFile("./client/dist/client/index.html") // Serve index.html for the root
+	})
 	// Start the server with a port from the environment variables
 	port := os.Getenv("PORT")
 	if port == "" {
