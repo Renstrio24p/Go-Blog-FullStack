@@ -46,16 +46,14 @@ func main() {
 	app.Use(recover.New())
 
 	app.Get("/", func(c *fiber.Ctx) error {
+		if os.Getenv("ENV") == "production" {
+			app.Static("/", "./client/dist/client")
+		}
 		return c.JSON(fiber.Map{"message": "Welcome to the new REST API"})
 	})
 
 	// Setup routes
 	router.SetupRouter(app)
-
-	// Serve static files from the client build in production
-	if os.Getenv("ENV") == "production" {
-		app.Static("/", "./client/dist/client")
-	}
 
 	// Start the server with a port from the environment variables
 	port := os.Getenv("PORT")
