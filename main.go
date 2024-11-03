@@ -45,10 +45,12 @@ func main() {
 	// Recover from panics and log them
 	app.Use(recover.New())
 
+	// Serve static files in production
+	if os.Getenv("ENV") == "production" {
+		app.Static("/", "./dist/client") // Serve static files from the dist/client directory
+	}
+
 	app.Get("/", func(c *fiber.Ctx) error {
-		if os.Getenv("ENV") == "production" {
-			app.Static("/", "./dist/client")
-		}
 		return c.JSON(fiber.Map{"message": "Welcome to the new REST API"})
 	})
 
