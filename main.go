@@ -47,7 +47,7 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		if os.Getenv("ENV") == "production" {
-			app.Static("/", "./client/dist/client")
+			app.Static("/", "./dist/client")
 		}
 		return c.JSON(fiber.Map{"message": "Welcome to the new REST API"})
 	})
