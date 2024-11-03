@@ -43,7 +43,7 @@ func main() {
 	}))
 
 	app.Use(func(c *fiber.Ctx) error {
-		return c.SendFile("./dist/client/index.html")
+		return c.SendFile("./client/dist/client/index.html")
 	})
 
 	// Recover from panics and log them
