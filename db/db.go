@@ -24,39 +24,17 @@ func Connect() {
 	}
 
 	// Get the DSN from the environment variables
-	dsnNoDB := os.Getenv("DSN")
-	if dsnNoDB == "" {
-		log.Fatal("DSN environment variable is not set")
+	dsn := os.Getenv("DSNwithDB") // Use DSN with database included
+	if dsn == "" {
+		log.Fatal("DSNwithDB environment variable is not set")
 	}
 
-	// Connect without specifying a database
-	db, err := gorm.Open(mysql.Open(dsnNoDB), &gorm.Config{
+	// Connect to the database
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Error),
 	})
 	if err != nil {
 		log.Fatalf("Could not connect to the MySQL server: %v", err)
-	}
-
-	// Create the database if not in production
-	if os.Getenv("ENV") != "production" {
-		if err := db.Exec("CREATE DATABASE IF NOT EXISTS sql12742373").Error; err != nil {
-			log.Fatalf("Failed to create database: %v", err)
-		}
-		fmt.Println("Database created")
-	}
-
-	// Now set DSN to include the sql12742373 database
-	dsnWithDB := os.Getenv("DSNwithDB")
-	if dsnWithDB == "" {
-		log.Fatal("DSNwithDB environment variable is not set")
-	}
-
-	// Connect again with the specified database
-	db, err = gorm.Open(mysql.Open(dsnWithDB), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Error),
-	})
-	if err != nil {
-		log.Fatalf("Could not connect to the sql12742373 database: %v", err)
 	}
 
 	fmt.Println("MySQL Database connected")
