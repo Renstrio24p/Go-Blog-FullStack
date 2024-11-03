@@ -6,7 +6,6 @@ import (
 	"os"
 
 	model "github.com/Renstrio24p/blog/models"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -15,16 +14,8 @@ import (
 var DBConnect *gorm.DB
 
 func Connect() {
-	// Load the .env file if not in production
-	if os.Getenv("ENV") != "production" {
-		err := godotenv.Load(".env")
-		if err != nil {
-			log.Fatalf("Error loading .env file: %v", err)
-		}
-	}
-
 	// Get the DSN from the environment variables
-	dsn := os.Getenv("DSNwithDB") // Use DSN with database included
+	dsn := os.Getenv("DSNwithDB") // Use DSN with the database included
 	if dsn == "" {
 		log.Fatal("DSNwithDB environment variable is not set")
 	}
@@ -37,7 +28,7 @@ func Connect() {
 		log.Fatalf("Could not connect to the MySQL server: %v", err)
 	}
 
-	fmt.Println("MySQL Database connected")
+	fmt.Println("Successfully connected to the MySQL Database")
 
 	// Automigrate models
 	if err := db.AutoMigrate(new(model.Blog)); err != nil {
