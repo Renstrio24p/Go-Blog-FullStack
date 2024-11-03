@@ -47,7 +47,7 @@ func main() {
 
 	// Serve static files in production
 	if os.Getenv("ENV") == "production" {
-		app.Static("/", "./dist/client") // Serve static files from the dist/client directory
+		app.Static("/", "./client/dist/client") // Serve static files from the dist/client directory
 	}
 
 	// Root endpoint
