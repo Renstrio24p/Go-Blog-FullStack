@@ -1,0 +1,265 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Mabinay Negros Oriental",
+            "body": "The Cave Capital of the Philippines"
+        },
+        {
+            "id": 2,
+            "title": "Panciao Manjuyod Negros Oriental",
+            "body": "The Separated City of the Philippines"
+        },
+        {
+            "id": 3,
+            "title": "Mandaluyong City, Metro Manila",
+            "body": "The Main Capital of the Philippines"
+        }
+    ],
+    "todos": [
+        {
+            "id": 1,
+            "title": "Learn React",
+            "body": "Learn React in 1 hour",
+            "completed": true
+        },
+        {
+            "id": 2,
+            "title": "Learn Vue",
+            "body": "Learn Vue in 1 hour",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "title": "Learn Angular",
+            "body": "Learn Angular in 1 hour",
+            "completed": false
+        },
+        {
+            "id": 4,
+            "title": "Learn Laravel",
+            "body": "Learn Laravel in 1 hour",
+            "completed": false
+        },
+        {
+            "id": 5,
+            "title": "Learn Node",
+            "body": "Learn Node in 1 hour",
+            "completed": true
+        },
+        {
+            "id": 6,
+            "title": "Learn Tanstack Router",
+            "body": "Learn Tanstack Router in 1 hour",
+            "completed": false
+        },
+        {
+            "id": 7,
+            "title": "Learn Tanstack React Query",
+            "body": "Learn Tanstack React Query in 1 hour In Progress",
+            "completed": false
+        }
+    ],
+    "fruits": [
+        {
+            "id": 1,
+            "name": "Apple"
+        },
+        {
+            "id": 2,
+            "name": "Banana"
+        },
+        {
+            "id": 3,
+            "name": "Orange"
+        },
+        {
+            "id": 4,
+            "name": "Watermelon"
+        },
+        {
+            "id": 5,
+            "name": "Mango"
+        },
+        {
+            "id": 6,
+            "name": "Pineapple"
+        },
+        {
+            "id": 7,
+            "name": "Grapes"
+        },
+        {
+            "id": 8,
+            "name": "Strawberry"
+        },
+        {
+            "id": 9,
+            "name": "Blueberry"
+        },
+        {
+            "id": 10,
+            "name": "Raspberry"
+        },
+        {
+            "id": 11,
+            "name": "Cherry"
+        },
+        {
+            "id": 12,
+            "name": "Peach"
+        },
+        {
+            "id": 13,
+            "name": "Plum"
+        },
+        {
+            "id": 14,
+            "name": "Pear"
+        },
+        {
+            "id": 15,
+            "name": "Kiwi"
+        },
+        {
+            "id": 16,
+            "name": "Avocado"
+        },
+        {
+            "id": 17,
+            "name": "Coconut"
+        },
+        {
+            "id": 18,
+            "name": "Papaya"
+        },
+        {
+            "id": 19,
+            "name": "Guava"
+        },
+        {
+            "id": 20,
+            "name": "Pomegranate"
+        },
+        {
+            "id": 21,
+            "name": "Lychee"
+        },
+        {
+            "id": 22,
+            "name": "Lemon"
+        },
+        {
+            "id": 23,
+            "name": "Lime"
+        },
+        {
+            "id": 24,
+            "name": "Grapefruit"
+        },
+        {
+            "id": 25,
+            "name": "Cantaloupe"
+        },
+        {
+            "id": 26,
+            "name": "Honeydew"
+        },
+        {
+            "id": 27,
+            "name": "Apricot"
+        },
+        {
+            "id": 28,
+            "name": "Nectarine"
+        },
+        {
+            "id": 29,
+            "name": "Tangerine"
+        },
+        {
+            "id": 30,
+            "name": "Mandarin"
+        },
+        {
+            "id": 31,
+            "name": "Kumquat"
+        },
+        {
+            "id": 32,
+            "name": "Passion Fruit"
+        },
+        {
+            "id": 33,
+            "name": "Dragon Fruit"
+        },
+        {
+            "id": 34,
+            "name": "Star Fruit"
+        },
+        {
+            "id": 35,
+            "name": "Persimmon"
+        },
+        {
+            "id": 36,
+            "name": "Mangosteen"
+        },
+        {
+            "id": 37,
+            "name": "Durian"
+        },
+        {
+            "id": 38,
+            "name": "Jackfruit"
+        },
+        {
+            "id": 39,
+            "name": "Rambutan"
+        },
+        {
+            "id": 40,
+            "name": "Longan"
+        },
+        {
+            "id": 41,
+            "name": "Guava"
+        },
+        {
+            "id": 42,
+            "name": "Soursop"
+        },
+        {
+            "id": 43,
+            "name": "Custard Apple"
+        },
+        {
+            "id": 44,
+            "name": "Cherimoya"
+        },
+        {
+            "id": 45,
+            "name": "Pitaya"
+        },
+        {
+            "id": 46,
+            "name": "Pawpaw"
+        },
+        {
+            "id": 47,
+            "name": "Feijoa"
+        },
+        {
+            "id": 48,
+            "name": "Cranberry"
+        },
+        {
+            "id": 49,
+            "name": "Clementine"
+        },
+        {
+            "id": 50,
+            "name": "Gooseberry"
+        }
+    ]
+}
