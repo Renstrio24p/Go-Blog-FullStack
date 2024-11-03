@@ -3,12 +3,14 @@ package main
 import (
 	"log"
 	"os"
+	"time"
 
 	database "github.com/Renstrio24p/blog/db"
 	router "github.com/Renstrio24p/blog/routers"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
 func init() {
@@ -22,13 +24,17 @@ func main() {
 	}
 	defer sqlDb.Close()
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+	})
 
+	// CORS configuration
 	if os.Getenv("ENV") == "production" {
-		app.Use((cors.New(cors.Config{
+		app.Use(cors.New(cors.Config{
 			AllowOrigins: os.Getenv("CLIENT_URL"),
-			AllowHeaders: "Origin, Content-Type, Accept",
-		})))
+			AllowHeaders: "Origin, Content-Type, Accept, Authorization",
+		}))
 	}
 
 	// Use Fiber's built-in logger middleware
@@ -36,16 +42,25 @@ func main() {
 		Format: "[${time}] ${method} ${path} ${status} - ${latency}\n",
 	}))
 
+	// Recover from panics and log them
+	app.Use(recover.New())
+
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON(fiber.Map{"message": "Welcome to new Rest API"})
+		return c.JSON(fiber.Map{"message": "Welcome to the new REST API"})
 	})
 
 	// Setup routes
 	router.SetupRouter(app)
 
+	// Serve static files from the client build in production
 	if os.Getenv("ENV") == "production" {
 		app.Static("/", "./client/dist/client")
 	}
 
-	log.Fatal(app.Listen(":8080"))
+	// Start the server with a port from the environment variables
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port
+	}
+	log.Fatal(app.Listen(":" + port))
 }
