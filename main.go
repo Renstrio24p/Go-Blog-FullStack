@@ -42,10 +42,6 @@ func main() {
 		Format: "[${time}] ${method} ${path} ${status} - ${latency}\n",
 	}))
 
-	app.Use(func(c *fiber.Ctx) error {
-		return c.SendFile("./client/dist/client/index.html")
-	})
-
 	// Recover from panics and log them
 	app.Use(recover.New())
 
@@ -54,8 +50,9 @@ func main() {
 		app.Static("/", "./dist/client") // Serve static files from the dist/client directory
 	}
 
+	// Root endpoint
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON(fiber.Map{"message": "Welcome to the new REST API"})
+		return c.SendFile("./dist/client/index.html") // Serve index.html for the root
 	})
 
 	// Setup routes
