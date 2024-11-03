@@ -52,7 +52,7 @@ func main() {
 
 	// Root endpoint
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendFile("./dist/client/index.html") // Serve index.html for the root
+		return c.SendFile("./client/dist/client/index.html") // Serve index.html for the root
 	})
 
 	// Setup routes
