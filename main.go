@@ -42,6 +42,10 @@ func main() {
 		Format: "[${time}] ${method} ${path} ${status} - ${latency}\n",
 	}))
 
+	app.Use(func(c *fiber.Ctx) error {
+		return c.SendFile("./dist/client/index.html")
+	})
+
 	// Recover from panics and log them
 	app.Use(recover.New())
 
