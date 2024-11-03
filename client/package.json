@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node --loader ts-node/esm --no-warnings=ExperimentalWarning server.ts && tsr generate && tsr watch",
     "build": "npm run build:client && npm run build:server.ts",
-    "build:client": "vite build --ssrManifest --outDir ../dist/client",
-    "build:server.ts": "vite build --ssr src/server.tsx --outDir ../dist/server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server.ts": "vite build --ssr src/server.tsx --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node --loader ts-node/esm --no-warnings=ExperimentalWarning server.ts",
     "server-json": "json-server --watch src/db/db.json --port 3000"
   },
